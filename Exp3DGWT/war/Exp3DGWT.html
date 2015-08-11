@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<!-- The DOCTYPE declaration above will set the     -->
+<!-- browser's rendering engine into                -->
+<!-- "Standards Mode". Replacing this declaration   -->
+<!-- with a "Quirks Mode" doctype is not supported. -->
+
+<html style="background: black; height: 100%;">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <!--                                                               -->
+    <!-- Consider inlining CSS to reduce the number of requested files -->
+    <!--                                                               
+    <link type="text/css" rel="stylesheet" href="Exp3DGWT.css"> -->
+
+	<style>
+		@font-face
+		{
+			font-family: defaultFont;
+			src: url(assets/fonts/Skir.ttf);
+		}
+	
+		html {
+			margin: 0;
+			padding 0;
+			/*min-width: 1024px;*/
+		}
+		
+		div {
+			margin: 0;
+			padding: 0;
+		}
+
+		#table-root {
+			border-collapse: collapse;
+			border-spacing: 0px;
+			margin: auto;
+		}
+		
+		#table-root tr, #table-root tr td {
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		.border-angle {
+			width: 12px;
+			height: 12px;
+		}
+		
+		.border-horizontal {
+			height: 12px;
+		}
+		
+		.border-vertical {
+			width: 12px;
+		}
+		
+		#table-top-left {
+			background: url(img/border-top-left.png);
+		}
+		#table-top-middle {
+			background: url(img/border-top.png);
+		}
+		#table-top-right {
+			background: url(img/border-top-right.png);
+		}
+		
+		#table-middle-left {
+			background: url(img/border-left.png);
+		}
+		#table-middle-right {
+			background: url(img/border-right.png);
+		}
+		
+		#table-bottom-left {
+			background: url(img/border-bottom-left.png);
+		}
+		#table-bottom-middle {
+			background: url(img/border-bottom.png);
+		}
+		#table-bottom-right {
+			background: url(img/border-bottom-right.png);
+		}
+		
+		canvas {
+			display: block;
+			border: none;
+			padding: 0;
+			margin: 0;
+			outline: none;
+			-webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
+		}
+		
+		#star-div {
+			background: url(img/star.png) no-repeat;
+			background-position: top right;
+			height: 100%;
+		}
+		
+		#description-div {
+			position: absolute; 
+			width: 25%;
+			max-width: 500px;
+			color: white;
+			padding: 20px;
+		}
+		
+		.description-content-div {
+			text-align: center;
+			font-size: 1.7em;
+			padding-left: 1.5em;
+			padding-right: 1.5em;
+			font-family: defaultFont;
+			text-shadow:0px 0px 20px #00ffff;
+			color: white;
+		}
+		
+
+		
+		#webgl-nosupport-div {
+			padding: 2em;
+			background: #002255;
+			text-align: center;
+			color: white;
+			font-size: 1.1em;
+		}
+		
+		a img {
+			border: 0;
+		}
+		
+	</style>
+	
+    <!--                                           -->
+    <!-- Any title is fine                         -->
+    <!--                                           -->
+    <title>Exp3D WebGL Demo</title>
+    
+    <!--                                           -->
+    <!-- This script loads your compiled module.   -->
+    <!-- If you add any GWT meta tags, they must   -->
+    <!-- be added before this line.                -->
+    <!--                                           -->
+    <script type="text/javascript" language="javascript" src="exp3dgwt/exp3dgwt.nocache.js"></script>
+  </head>
+
+  <!--                                           -->
+  <!-- The body can have arbitrary html, or      -->
+  <!-- you can leave the body empty if you want  -->
+  <!-- to create a completely dynamic UI.        -->
+  <!--                                           -->
+  <body style="background: url(img/bg.png); margin: 0; padding: 0; height: 100%;">
+
+    <!-- OPTIONAL: include this if you want history support -->
+    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+    
+    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled
+        in order for this application to display correctly.
+      </div>
+    </noscript>
+	
+	<!-- <div id="gwtGL" style="margin: 0; padding: 0; border: none;" > -->
+	
+	<div id ="star-div">
+	
+	<div id="description-portrait" class="description-content-div" style="display: none; margin-bottom: -10px; margin-top: 2px;">
+	   <img src="assets/img/title.png" alt="Exp3D" style="height: 35px; margin-bottom: -6px;"/>
+	   <a href="https://play.google.com/store/apps/details?id=com.breakingbyte.exp3d" style="text-decoration: none;">
+        <img src="img/google-play.png" alt="Download on Google Play" style="height: 32px; margin-bottom: -5px;"/>
+        </a>
+        <span style="font-size: 110%;">WebGL&nbsp;Demo</span>
+	</div>
+	
+	<div id="description-div">
+        <img src="assets/img/title.png" alt="Exp3D" style="width: 100%; "/>
+        <div class="description-content-div">
+        WebGL Demo
+        <br/><br/><br/>
+        <a href="https://play.google.com/store/apps/details?id=com.breakingbyte.exp3d" style="text-decoration: none;">
+        &nbsp;<img src="img/icon-exp3d.png" alt="Download on Google Play" style="max-width: 100%;"/>
+        <br/>
+        <img src="img/google-play.png" alt="Download on Google Play" style="max-width: 100%;"/>
+        </a>
+        <br/><br/><br/>
+        Once again enemy forces emerged from the depths of the galaxy to attack your homeworld. <br/><br/>
+        Time to repel the invasion with your Exp3D ship!
+        
+      
+        </div>
+    </div>
+	
+	<div style="clear: both; width: 100%; padding-top: 22px;">
+	<table id="table-root">
+	<tr>
+		<td id="table-top-left"   class="border-angle"></td>
+		<td id="table-top-middle" class="border-horizontal"></td>
+		<td id="table-top-right"  class="border-angle"></td>
+	</tr>
+	<tr>
+		<td id="table-middle-left"  class="border-vertical"></td>
+		<td id="table-middle-middle"> 
+			<div style="margin: 0; padding: 0; border: none;"> 
+			
+			<div id="gwtGL" style="margin: 0; padding: 0; border: none;" > </div>
+			
+			<div id="webgl-nosupport-div" style="display: none;">
+			Please use a browser that supports WebGL:<br/><br/>
+			<a href="http://www.google.com/chrome"><img src="img/chrome-logo.png" alt="Google Chrome"/></a>&nbsp;&nbsp;
+			<a href="http://www.mozilla.org/firefox"><img src="img/firefox-logo.png" alt="Firefox"/></a>
+			</div>
+			</div>
+		</td>
+		<td id="table-middle-right" class="border-vertical"></td>
+	</tr>
+	<tr>
+		<td id="table-bottom-left" class="border-angle"></td>
+		<td id="table-bottom-middle" class="border-horizontal"></td>
+		<td id="table-bottom-right"  class="border-angle"></td>
+	</tr>
+	</table>
+	</div>
+	<div style="position: absolute; right: 0; bottom: 0; padding-bottom: 11px; font-size: 20px; font-family: defaultFont; letter-spacing: 1px;">
+		<a href="/" style="text-decoration: none; color: #999999;">
+		A game by <img src="img/bb.png" style="width: 180px; margin-bottom: -7.5px; margin-right: 10px; "/> 
+		</a>
+	</div>
+	
+	</div> <!-- BG star -->
+	
+	
+  </body>
+</html>
